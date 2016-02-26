@@ -1,0 +1,11 @@
+[ignore]
+.*/app/.*
+.*/tests/.*
+
+[include]
+
+[libs]
+flow-interfaces/
+
+[options]
+esproposal.class_static_fields=enable
