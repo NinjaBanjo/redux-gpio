@@ -1,6 +1,13 @@
 [ignore]
 .*/app/.*
 .*/tests/.*
+.*/is-my-json-valid/.*
+.*/spdx-exceptions/.*
+.*/spdx-license-ids/.*
+.*/json5/.*
+.*/builtin-modules/.*
+.*/binary-extensions/.*
+.*/babel-.*/.*
 
 [include]
 
