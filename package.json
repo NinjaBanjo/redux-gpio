@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eventemitter3": "^1.1.1",
     "onoff": "1.0.4"
   },
   "devDependencies": {
@@ -21,6 +22,7 @@
     "babel-preset-stage-0": "6.5.0",
     "babel-register": "6.5.2",
     "chai": "3.5.0",
+    "flow-interfaces": "^0.3.1",
     "mocha": "2.4.5",
     "sinon": "1.17.3"
   }

@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import EventEmitter from 'events';
+import EE from 'eventemitter3';
 
 import { Gpio } from 'onoff';
 
@@ -23,7 +23,7 @@ describe('lib/interfaces/NoNcSwitch', () => {
   });
 
   it('should extend EventEmitter', () => {
-    expect(NoNcSwitch.prototype instanceof EventEmitter).to.equal(true);
+    expect(NoNcSwitch.prototype instanceof EE).to.equal(true);
   });
 
   describe('startPolling', () => {
@@ -33,15 +33,15 @@ describe('lib/interfaces/NoNcSwitch', () => {
   describe('stopPolling', () => {
     it('should call `clearInterval` with the `pollingInterval` on context and set it null', () => {
       const contextStub = {
-        pollingInterval: 'pollingInterval'
+        pollingTimeout: 64
       };
-      sandbox.stub(global, 'clearInterval');
+      sandbox.stub(global, 'clearTimeout');
 
       NoNcSwitch.prototype.stopPolling.call(contextStub);
 
-      expect(global.clearInterval.callCount).to.equal(1);
-      expect(global.clearInterval.firstCall.args[0]).to.equal('pollingInterval');
-      expect(contextStub.pollingInterval).to.be.null;
+      expect(global.clearTimeout.callCount).to.equal(1);
+      expect(global.clearTimeout.firstCall.args[0]).to.equal(64);
+      expect(contextStub.pollingTimeout).to.equal(0);
     });
   });
 });
