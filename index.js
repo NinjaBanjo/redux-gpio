@@ -1,1 +1,1 @@
-require('./lib/boot');
+require('./shared/lib/boot');
