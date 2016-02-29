@@ -5,7 +5,7 @@ import EE from 'eventemitter3';
 
 import { Gpio } from 'onoff';
 
-import NoNcSwitch from '../../../../lib/interfaces/NoNcSwitch';
+import NoNcSwitch from '../../../lib/interfaces/NoNcSwitch';
 
 describe('shared/lib/interfaces/NoNcSwitch', () => {
   let sandbox;
