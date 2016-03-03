@@ -1,9 +1,13 @@
-import { expect } from 'chai';
+import {
+  expect
+} from 'chai';
 import sinon from 'sinon';
 
 import EE from 'eventemitter3';
 
-import { Gpio } from 'onoff';
+import {
+  Gpio
+} from 'onoff';
 
 import NoNcSwitch from '../../../../lib/interfaces/NoNcSwitch';
 
@@ -29,7 +33,7 @@ describe('shared/lib/interfaces/NoNcSwitch', () => {
   describe('startPolling', () => {
     let contextStub;
 
-    beforeEach(function () {
+    beforeEach(function() {
       contextStub = {
         pollingInterval: 500,
         poll: sandbox.stub().returns(123)

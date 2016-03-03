@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter dot --compilers js:babel-register 'tests/+(unit|integration)/**/*-test.js'",
+    "test": "./node_modules/.bin/mocha --reporter dot --compilers js:babel-register 'tests/**/!(*-s-test)-test.js'",
     "testall": "./node_modules/.bin/mocha --reporter dot --compilers js:babel-register 'tests/**/*-test.js'",
     "build": "./node_modules/.bin/babel lib -d app --source-maps"
   },
