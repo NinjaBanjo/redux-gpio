@@ -11,7 +11,7 @@ import {
 
 import NoNcSwitch from '../../../lib/interfaces/NoNcSwitch';
 
-describe('shared/lib/interfaces/NoNcSwitch', () => {
+describe('interfaces/NoNcSwitch', () => {
   let sandbox;
 
   beforeEach(() => {

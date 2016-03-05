@@ -28,5 +28,5 @@ describe('LoggerFactory', () => {
 
   it('should have the default transports', () => {
     expect(LoggerFactory.default.transports[0]).to.be.an.instanceof(winston.transports.File)
-  })
+  });
 });
