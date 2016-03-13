@@ -26,7 +26,7 @@ describe('LoggerFactory', () => {
     expect(LoggerFactory).to.be.an.instanceof(winston.Container);
   });
 
-  it('should have the default transports', () => {
+  it('should have the default transport to goes to a file', () => {
     expect(LoggerFactory.default.transports[0]).to.be.an.instanceof(winston.transports.File)
   });
 });

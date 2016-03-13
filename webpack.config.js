@@ -1,14 +1,15 @@
 var webpack = require('webpack');
 
 module.exports = function() {return {
+  target: 'node',
   entry: {
-    main: 'lib/boot'
+    main: './lib/boot'
   },
   output: {
     path: __dirname + '/dist',
     filename: '[name].js'
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
   plugins: [
 
   ],
