@@ -1,6 +1,7 @@
 {
   "presets": [
-    "node5"
+    "node5",
+    "react"
   ],
   "plugins": [
     "transform-object-rest-spread"
