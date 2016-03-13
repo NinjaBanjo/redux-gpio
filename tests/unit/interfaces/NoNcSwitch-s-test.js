@@ -1,13 +1,9 @@
-import {
-  expect
-} from 'chai';
+import { expect } from 'chai';
 import sinon from 'sinon';
 
 import EE from 'eventemitter3';
 
-import {
-  Gpio
-} from 'onoff';
+import Gpio from 'pi-gpio';
 
 import NoNcSwitch from '../../../lib/interfaces/NoNcSwitch';
 

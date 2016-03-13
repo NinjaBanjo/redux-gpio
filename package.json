@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/grunt test",
-    "testall": "babel-node node_modules/isparta/bin/isparta cover --report text --report html node_modules/mocha/bin/_mocha -- --reporter dot 'tests/**/!(*-s-test)-test.js'",
+    "testall": "babel-node ./node_modules/.bin/istanbul cover --report text --report html node_modules/mocha/bin/_mocha -- --reporter dot 'tests/**/!(*-s-test)-test.js'",
     "testmost": "./node_modules/.bin/grunt testmost",
     "build": "./node_modules/.bin/grunt build",
     "pack": "./node_modules/.bin/grunt pack"
@@ -32,9 +32,9 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-compress": "^1.1.1",
     "grunt-mocha-istanbul": "^3.0.1",
-    "grunt-mocha-test": "^0.12.7",
     "grunt-webpack": "^1.0.11",
     "isparta": "^4.0.0",
+    "istanbul": "^1.0.0-alpha.2",
     "mocha": "2.4.5",
     "sinon": "1.17.3",
     "webpack": "^2.1.0-beta.4",

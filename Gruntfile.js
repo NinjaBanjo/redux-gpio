@@ -3,9 +3,8 @@ var webpackConfig = require('./webpack.config')();
 var pkg = require('./package.json');
 var execSync = require('child_process').execSync;
 
-var testCmd = "./node_modules/.bin/babel-node " +
-"node_modules/isparta/bin/isparta cover --report text --report html " +
-"node_modules/mocha/bin/_mocha -- --reporter dot ";
+var testCmd = "./node_modules/.bin/istanbul cover --report text --report html " +
+"./node_modules/.bin/_mocha -- --compilers js:babel-register --reporter dot ";
 
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -40,7 +39,7 @@ module.exports = function(grunt) {
     // reporters are setup using --reporter per isparta documentation
     // Mocha config is also tagged onto the end
     execSync(testCmd + "'tests/**/*-test.js'", {
-      stdio:[0,1,2] // <-- this writes the exec to the console with colors
+      stdio: 'inherit' // <-- this writes the exec to the console with colors
     });
   });
 
@@ -49,7 +48,7 @@ module.exports = function(grunt) {
     // reporters are setup using --reporter per isparta documentation
     // Mocha config is also tagged onto the end
     execSync(testCmd + "'tests/**/!(*-s-test)-test.js'", {
-      stdio:[0,1,2] // <-- this writes the exec to the console with colors
+      stdio: 'inherit' // <-- this writes the exec to the console with colors
     });
   });
 
