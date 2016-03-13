@@ -3,7 +3,7 @@ import sinon from 'sinon';
 
 import EE from 'eventemitter3';
 
-import Gpio from 'pi-gpio';
+import Gpio from '../../../lib/modules/Gpio';
 
 import LED from '../../../lib/interfaces/LED';
 

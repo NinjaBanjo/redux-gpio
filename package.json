@@ -20,6 +20,7 @@
   "devDependencies": {
     "babel-cli": "^6.5.1",
     "babel-loader": "^6.2.4",
+    "babel-plugin-transform-class-properties": "^6.6.0",
     "babel-plugin-transform-object-rest-spread": "^6.6.5",
     "babel-preset-node5": "^10.8.0",
     "babel-preset-react": "^6.5.0",
