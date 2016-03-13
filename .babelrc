@@ -1,14 +1,8 @@
 {
+  "presets": [
+    "node5"
+  ],
   "plugins": [
-    "typecheck", "syntax-flow", "transform-flow-strip-types",
-    "transform-async-to-generator",
-    "transform-es2015-destructuring",
-    "transform-es2015-parameters",
-    "transform-es2015-sticky-regex",
-    "transform-es2015-unicode-regex",
-    "transform-flow-strip-types",
-    "transform-object-rest-spread",
-    "transform-strict-mode",
-    "transform-class-properties"
+    "transform-object-rest-spread"
   ]
 }

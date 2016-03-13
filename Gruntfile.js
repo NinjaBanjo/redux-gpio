@@ -1,14 +1,15 @@
-var webpackConfig = rquire('./webpack.config.js')();
+var webpackConfigProd = require('./webpack.config.prod');
+var webpackConfig = require('./webpack.config')();
 
 module.exports = function(grunt) {
 
   grunt.initConfig({
-    webpack: webpackConfig
+    webpack: {
+      main: webpackConfigProd
+    }
   });
 
   grunt.registerTask('build', [
-    'clean:dist',
-    'test',
     'webpack'
   ]);
 
@@ -16,8 +17,6 @@ module.exports = function(grunt) {
     'cleam:coverage',
     'karma:unit'
   ]);
-
-  grunt.registerTask()
 
   grunt.registerTask('default', [
     'build'
