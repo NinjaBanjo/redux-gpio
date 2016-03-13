@@ -3,7 +3,7 @@ import sinon from 'sinon';
 
 import EE from 'eventemitter3';
 
-import { Gpio } from 'onoff';
+import Gpio from 'pi-gpio';
 
 import LED from '../../../lib/interfaces/LED';
 
@@ -19,6 +19,6 @@ describe('interfaces/LED', () => {
   });
 
   describe('constructor', () => {
-    it('takes a Gpio pin', )
+
   });
 });
