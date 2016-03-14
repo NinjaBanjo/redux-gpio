@@ -2,6 +2,7 @@
 .*/app/.*
 .*/tests/.*
 .*/is-my-json-valid/.*
+.*/y18n/.*
 .*/spdx-exceptions/.*
 .*/spdx-license-ids/.*
 .*/json5/.*

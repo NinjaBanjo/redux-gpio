@@ -3,7 +3,7 @@ import sinon from 'sinon';
 
 import EE from 'eventemitter3';
 
-import Gpio from '../../../lib/modules/Gpio';
+import gpio from '../../../lib/modules/gpio';
 
 import NoNcSwitch from '../../../lib/interfaces/NoNcSwitch';
 
