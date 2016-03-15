@@ -15,7 +15,10 @@
   "license": "ISC",
   "dependencies": {
     "eventemitter3": "^1.1.1",
+    "immutable": "^3.7.6",
     "pi-gpio": "0.0.8",
+    "redux": "^3.3.1",
+    "redux-immutable": "^3.0.6",
     "winston": "^2.2.0"
   },
   "devDependencies": {
@@ -26,7 +29,6 @@
     "babel-preset-node5": "^10.8.0",
     "babel-preset-react": "^6.5.0",
     "babel-register": "6.5.2",
-    "blanket": "^1.2.2",
     "chai": "3.5.0",
     "flow-bin": "^0.22.1",
     "flow-interfaces": "^0.3.1",
@@ -36,7 +38,6 @@
     "grunt-contrib-compress": "^1.1.1",
     "grunt-mocha-istanbul": "^3.0.1",
     "grunt-webpack": "^1.0.11",
-    "isparta": "^4.0.0",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "2.4.5",
     "sinon": "1.17.3",
