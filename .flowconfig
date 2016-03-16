@@ -13,7 +13,6 @@
 [include]
 
 [libs]
-flow-interfaces/
 node_modules/flow-interfaces/interfaces/
 
 [options]
