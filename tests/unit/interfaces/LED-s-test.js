@@ -16,7 +16,7 @@ describe('interfaces/LED', () => {
     sandbox = sinon.sandbox.create();
     // reload gpio stubs
     oldGpio = gpio;
-    gpio = Object.assign({}, gpioStub);
+    gpio = Object.assign({}, gpioStub());
     sandbox.stub()
   });
 
