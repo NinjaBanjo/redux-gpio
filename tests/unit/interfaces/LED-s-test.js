@@ -1,33 +1,26 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import EE from 'eventemitter3';
-
-import gpio from '../../../lib/modules/gpio';
+import gpioHelper from '../../../lib/helpers/gpioHelper';
 import LED from '../../../lib/interfaces/LED';
 
 import gpioStub from '../../stubs/gpio';
 
 describe('interfaces/LED', () => {
   let sandbox;
-  let oldGpio;
 
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
-    // reload gpio stubs
-    oldGpio = gpio;
-    gpio = Object.assign({}, gpioStub());
-    sandbox.stub()
+    sandbox.stub(gpioHelper)
   });
 
   afterEach(() => {
     sandbox.restore();
-    gpio = oldGpio;
   });
 
   describe('constructor', () => {
     it('should open the gpio pin provided in arguments', () => {
-
+      
     });
 
     it('should throw when it doesn\'t get a pin', () => {
@@ -35,7 +28,7 @@ describe('interfaces/LED', () => {
     });
 
     it('should return itself', () => {
-      expect(new LED(1)).to.have.property()
+      expect(new LED(1)).to.have.property('write');
     });
   });
 

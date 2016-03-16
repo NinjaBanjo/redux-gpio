@@ -1,8 +1,6 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import EE from 'eventemitter3';
-
 import gpio from '../../../lib/modules/gpio';
 
 import NoNcSwitch from '../../../lib/interfaces/NoNcSwitch';
@@ -20,10 +18,6 @@ describe('interfaces/NoNcSwitch', () => {
 
   it('should be a function', () => {
     expect(NoNcSwitch).to.be.a('function');
-  });
-
-  it('should extend EventEmitter', () => {
-    expect(NoNcSwitch.prototype instanceof EE).to.equal(true);
   });
 
   describe('startPolling', () => {

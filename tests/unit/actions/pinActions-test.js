@@ -27,10 +27,12 @@ describe('action/pinActions', () => {
   describe('change', () => {
     it('should return action with `CHANGE_PIN` type and pin + value passed', () => {
       var action = change(6, 1);
-      expect(action).to.dee.equal({
+      expect(action).to.deep.equal({
         type: CHANGE_PIN,
-        pin: 6,
-        value: 1
+        payload: {
+          pin: 6,
+          value: 1
+        }
       });
     });
   });

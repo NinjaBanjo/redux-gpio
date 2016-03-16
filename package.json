@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eventemitter3": "^1.1.1",
     "immutable": "^3.7.6",
     "pi-gpio": "0.0.8",
     "redux": "^3.3.1",
