@@ -3,7 +3,7 @@ var webpackConfig = require('./webpack.config')();
 var pkg = require('./package.json');
 var execSync = require('child_process').execSync;
 
-var testCmd = "./node_modules/.bin/istanbul cover --report text --report html " +
+var testCmd = "./node_modules/.bin/istanbul cover --report html " +
 "./node_modules/.bin/_mocha -- --compilers js:babel-register --reporter dot ";
 
 module.exports = function(grunt) {
