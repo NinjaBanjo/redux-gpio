@@ -8,10 +8,15 @@ import gpioStub from '../../stubs/gpio';
 
 describe('interfaces/LED', () => {
   let sandbox;
+  let thenSpy;
 
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
-    sandbox.stub(gpioHelper)
+
+    sandbox.stub(gpioHelper, 'open')
+    sandbox.stub(gpioHelper, 'close')
+    sandbox.stub(gpioHelper, 'read')
+    sandbox.stub(gpioHelper, 'write')
   });
 
   afterEach(() => {
@@ -20,7 +25,7 @@ describe('interfaces/LED', () => {
 
   describe('constructor', () => {
     it('should open the gpio pin provided in arguments', () => {
-      
+
     });
 
     it('should throw when it doesn\'t get a pin', () => {
