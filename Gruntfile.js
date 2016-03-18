@@ -15,7 +15,7 @@ module.exports = function(grunt) {
           mode: 'zip',
           pretty: true
         },
-        // this has to be an object with src property in an array for it to use bob properly
+        // this has to be an object with src property in an array for it to glob properly
         files: [{src:'dist/**/*.js'}]
       }
     },

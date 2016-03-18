@@ -1,7 +1,9 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import gpioHelper from '../../../lib/helpers/gpioHelper';
+import store from '../../../lib/store';
+
+import * as gpioHelper from '../../../lib/helpers/gpioHelper';
 import LED from '../../../lib/interfaces/LED';
 
 import gpioStub from '../../stubs/gpio';
@@ -13,10 +15,11 @@ describe('interfaces/LED', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
 
-    sandbox.stub(gpioHelper, 'open')
-    sandbox.stub(gpioHelper, 'close')
-    sandbox.stub(gpioHelper, 'read')
-    sandbox.stub(gpioHelper, 'write')
+    sandbox.stub(gpioHelper, 'open');
+    sandbox.stub(gpioHelper, 'close');
+    sandbox.stub(gpioHelper, 'read');
+    sandbox.stub(gpioHelper, 'write');
+    sandbox.stub(store, 'dispatch');
   });
 
   afterEach(() => {
@@ -29,7 +32,7 @@ describe('interfaces/LED', () => {
     });
 
     it('should throw when it doesn\'t get a pin', () => {
-      expect(function() {new LED()}).to.throw(Error);
+      expect(function() {new LED();}).to.throw(Error);
     });
 
     it('should return itself', () => {

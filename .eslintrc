@@ -1,0 +1,28 @@
+{
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
+    "env": {
+      "node": true
+    },
+    "rules": {
+        "semi": 2,
+        "flowtype/require-parameter-type": 1,
+        "flowtype/require-return-type": [
+            1,
+            "always",
+            {
+                "annotateUndefined": "never"
+            }
+        ],
+        "flowtype/space-after-type-colon": [
+            1,
+            "always"
+        ],
+        "flowtype/space-before-type-colon": [
+            1,
+            "never"
+        ]
+    }
+}

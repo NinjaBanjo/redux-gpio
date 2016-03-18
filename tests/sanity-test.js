@@ -1,6 +1,6 @@
 import {
   expect
-} from 'chai'
+} from 'chai';
 
 describe('sanity', () => {
   it('should be able to add 1 + 1', function() {
