@@ -4,7 +4,7 @@ var pkg = require('./package.json');
 var execSync = require('child_process').execSync;
 
 var testCmd = "./node_modules/.bin/istanbul cover --report html " +
-"./node_modules/.bin/_mocha -- --compilers js:babel-register --reporter dot ";
+"./node_modules/.bin/_mocha -- --compilers js:babel-register --require source-map-support/register --reporter dot ";
 
 module.exports = function(grunt) {
   grunt.initConfig({
