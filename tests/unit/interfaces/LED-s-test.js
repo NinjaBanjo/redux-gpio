@@ -20,6 +20,7 @@ describe('interfaces/LED', () => {
     sandbox.stub(gpioHelper, 'read');
     sandbox.stub(gpioHelper, 'write');
     sandbox.stub(store, 'dispatch');
+    sandbox.stub(store, 'subscribe');
   });
 
   afterEach(() => {
