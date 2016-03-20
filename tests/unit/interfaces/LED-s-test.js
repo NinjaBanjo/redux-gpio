@@ -33,11 +33,11 @@ describe('interfaces/LED', () => {
     });
 
     it('should throw when it doesn\'t get a pin', () => {
-      expect(function() {new LED();}).to.throw(Error);
+      expect(function() {new LED(store.dispatch, 1);}).to.throw(Error);
     });
 
     it('should return itself', () => {
-      expect(new LED(1)).to.have.property('write');
+      expect(new LED(store.dispatch, 42)).to.have.property('write');
     });
   });
 

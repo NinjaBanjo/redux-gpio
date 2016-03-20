@@ -24,16 +24,5 @@ describe('action/pinActions', () => {
     sandbox.restore();
   });
 
-  describe('change', () => {
-    it('should return action with `CHANGE_PIN` type and pin + value passed', () => {
-      var action = change(6, 1);
-      expect(action).to.deep.equal({
-        type: CHANGE_PIN,
-        payload: {
-          pin: 6,
-          value: 1
-        }
-      });
-    });
-  });
+  
 });
