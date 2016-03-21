@@ -1,19 +1,12 @@
 [ignore]
 .*/dist/.*
 .*/tests/.*
-.*/node_modules/is-my-json-valid/.*
-.*/node_modules/y18n/.*
-.*/node_modules/spdx-exceptions/.*
-.*/node_modules/spdx-license-ids/.*
-.*/node_modules/json5/.*
-.*/node_modules/builtin-modules/.*
-.*/node_modules/binary-extensions/.*
-.*/node_modules/babel-.*/.*
+.*/node_modules/y18n/test/locales/bad-locale.json
 
 [include]
 
 [libs]
-node_modules/flow-interfaces/interfaces/
+types/
 
 [options]
 esproposal.class_static_fields=enable

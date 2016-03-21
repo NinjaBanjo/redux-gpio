@@ -41,7 +41,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'type-check',
     'test',
     'webpack:main'
   ]);
