@@ -1,18 +1,17 @@
-var webpack = require('webpack');
+var nodeExternals = require('webpack-node-externals');
 
 module.exports = function() {return {
   target: 'node',
   entry: {
-    main: './lib/boot'
+    tracker: './lib/boot'
   },
   output: {
     path: __dirname + '/dist',
     filename: '[name].js'
   },
   devtool: 'inline-source-map',
-  plugins: [
-
-  ],
+  plugins: [],
+  externals: [nodeExternals()],
   module: {
     loaders: [
       {
@@ -22,4 +21,4 @@ module.exports = function() {return {
       }
     ]
   }
-}}
+};};

@@ -1,14 +1,14 @@
 [ignore]
-.*/app/.*
+.*/dist/.*
 .*/tests/.*
-.*/is-my-json-valid/.*
-.*/y18n/.*
-.*/spdx-exceptions/.*
-.*/spdx-license-ids/.*
-.*/json5/.*
-.*/builtin-modules/.*
-.*/binary-extensions/.*
-.*/babel-.*/.*
+.*/node_modules/is-my-json-valid/.*
+.*/node_modules/y18n/.*
+.*/node_modules/spdx-exceptions/.*
+.*/node_modules/spdx-license-ids/.*
+.*/node_modules/json5/.*
+.*/node_modules/builtin-modules/.*
+.*/node_modules/binary-extensions/.*
+.*/node_modules/babel-.*/.*
 
 [include]
 

@@ -1,10 +1,10 @@
-var webpackConfigProd = require('./webpack.config.prod');
+var webpackConfigProd = require('./webpack.prod.config');
+var webpackConfigTests = require('./webpack.tests.config');
 var webpackConfig = require('./webpack.config')();
 var pkg = require('./package.json');
 var execSync = require('child_process').execSync;
 
-var testCmd = "./node_modules/.bin/istanbul cover --report html " +
-"./node_modules/.bin/_mocha -- --compilers js:babel-register --require source-map-support/register --reporter dot ";
+var testCmd = "./node_modules/.bin/istanbul cover --report html ./node_modules/.bin/mocha -- --require source-map-support/register "; // run tets through istanbul in node
 
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -19,14 +19,31 @@ module.exports = function(grunt) {
         files: [{src:'dist/**/*.js'}]
       }
     },
+    clean: {
+      test: './dist/tests.js',
+      dist: './dist'
+    },
     webpack: {
-      main: webpackConfigProd
+      main: webpackConfigProd,
+      tests: webpackConfigTests
     }
   });
 
+  grunt.registerTask('run-tests', function() {
+    execSync(testCmd + "dist/tests.js", {
+      stdio: 'inherit' // <-- this writes the exec to the console with colors
+    });
+  });
+
+  grunt.registerTask('type-check', function() {
+    execSync('npm run flow', { stdio: 'inherit' });
+  });
+
   grunt.registerTask('build', [
+    'clean:dist',
+    'type-check',
     'test',
-    'webpack'
+    'webpack:main'
   ]);
 
   grunt.registerTask('pack', [
@@ -34,23 +51,15 @@ module.exports = function(grunt) {
     'compress:dist'
   ]);
 
-  grunt.registerTask('test', function() {
-    // Come long callout using babel-node to compile with .babelrc settings and isparta to report coverage.
-    // reporters are setup using --reporter per isparta documentation
-    // Mocha config is also tagged onto the end
-    execSync(testCmd + "'tests/**/*-test.js'", {
-      stdio: 'inherit' // <-- this writes the exec to the console with colors
-    });
-  });
+  grunt.registerTask('build-tests', [
+    'clean:test',
+    'webpack:tests'
+  ]);
 
-  grunt.registerTask('testmost', function() {
-    // Come long callout using babel-node to compile with .babelrc settings and isparta to report coverage.
-    // reporters are setup using --reporter per isparta documentation
-    // Mocha config is also tagged onto the end
-    execSync(testCmd + "'tests/**/!(*-s-test)-test.js'", {
-      stdio: 'inherit' // <-- this writes the exec to the console with colors
-    });
-  });
+  grunt.registerTask('test', [
+    'build-tests',
+    'run-tests'
+  ]);
 
   grunt.registerTask('default', [
     'build'
