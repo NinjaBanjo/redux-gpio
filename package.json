@@ -14,12 +14,12 @@
   "license": "ISC",
   "dependencies": {
     "immutable": "3.7.6",
-    "pi-gpio": "0.0.8",
     "redux": "3.3.1",
     "redux-actions": "0.9.1",
     "redux-immutable": "3.0.6",
     "redux-thunk": "2.0.1",
-    "winston": "2.2.0"
+    "winston": "2.2.0",
+    "wiring-pi": "2.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.5.1",
