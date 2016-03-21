@@ -2,6 +2,7 @@
 .*/dist/.*
 .*/tests/.*
 .*/node_modules/y18n/test/locales/bad-locale.json
+.*/node_modules/babel-.*
 
 [include]
 

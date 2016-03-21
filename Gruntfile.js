@@ -4,7 +4,8 @@ var webpackConfig = require('./webpack.config')();
 var pkg = require('./package.json');
 var execSync = require('child_process').execSync;
 
-var testCmd = "./node_modules/.bin/istanbul cover --report html ./node_modules/.bin/mocha -- --require source-map-support/register "; // run tets through istanbul in node
+// NOTE: _mocha vs mocha as _mocha tests sync and allows coverage reporting
+var testCmd = "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require source-map-support/register --reporter dot "; // run tets through istanbul in node
 
 module.exports = function(grunt) {
   grunt.initConfig({
