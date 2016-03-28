@@ -5,7 +5,7 @@ var pkg = require('./package.json');
 var execSync = require('child_process').execSync;
 
 // NOTE: _mocha vs mocha as _mocha tests sync and allows coverage reporting
-var testCmd = "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require source-map-support/register --reporter dot "; // run tets through istanbul in node
+var testCmd = "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --  --reporter dot "; // run tets through istanbul in node
 
 module.exports = function(grunt) {
   grunt.initConfig({
@@ -23,6 +23,9 @@ module.exports = function(grunt) {
     clean: {
       test: './dist/tests.js',
       dist: './dist'
+    },
+    eslint: {
+      all: ['lib/**/*.js']
     },
     webpack: {
       main: webpackConfigProd,
@@ -42,6 +45,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'lint-all',
     'test',
     'webpack:main'
   ]);
@@ -61,12 +65,17 @@ module.exports = function(grunt) {
     'run-tests'
   ]);
 
+  grunt.registerTask('lint-all', [
+    'eslint:all'
+  ]);
+
   grunt.registerTask('default', [
     'build'
   ]);
 
   grunt.loadNpmTasks('grunt-webpack');
   grunt.loadNpmTasks('grunt-mocha-istanbul');
+  grunt.loadNpmTasks('gruntify-eslint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
 };
