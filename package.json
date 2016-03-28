@@ -44,7 +44,7 @@
     "grunt-mocha-istanbul": "^3.0.1",
     "grunt-webpack": "^1.0.11",
     "gruntify-eslint": "2.0.0",
-    "istanbul": "^1.0.0-alpha.2",
+    "istanbul": "github:gotwarlost/istanbul#source-map",
     "mocha": "2.4.5",
     "mocha-loader": "^0.7.1",
     "sinon": "^2.0.0-pre",
