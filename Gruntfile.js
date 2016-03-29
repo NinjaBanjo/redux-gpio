@@ -9,6 +9,13 @@ var testCmd = "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- 
 
 module.exports = function(grunt) {
   grunt.initConfig({
+    copy: {
+      pkg: {
+        files: [
+          {src: ['package.json'], dest: 'dist/package.json'}
+        ]
+      }
+    },
     compress: {
       dist: {
         options: {
@@ -17,7 +24,9 @@ module.exports = function(grunt) {
           pretty: true
         },
         // this has to be an object with src property in an array for it to glob properly
-        files: [{src:'dist/**/*.js'}]
+        files: [
+          {expand: true, cwd: 'dist', src:['**']}
+        ]
       }
     },
     clean: {
@@ -40,6 +49,12 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.registerTask('package-modules', function() {
+    execSync('npm install --production --ignore-scripts --prefix dist/', {
+      stdio: 'inherit'
+    });
+  });
+
   grunt.registerTask('type-check', function() {
     execSync('npm run flow', { stdio: 'inherit' });
   });
@@ -53,6 +68,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('pack', [
     'build',
+    'copy:pkg',
+    'package-modules',
     'compress:dist'
   ]);
 
@@ -79,5 +96,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-istanbul');
   grunt.loadNpmTasks('gruntify-eslint');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-compress');
 };
