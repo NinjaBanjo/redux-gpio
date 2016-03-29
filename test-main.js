@@ -1,6 +1,3 @@
-require('source-map-support').install({
-  environment: 'node'
-});
 // setup test env
 var chai = require('chai');
 var sinonChai = require('sinon-chai');
