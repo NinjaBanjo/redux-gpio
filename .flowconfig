@@ -8,6 +8,10 @@
 
 [libs]
 types/
+node_modules/flow-interfaces/interfaces/redux-actions.d.js
+node_modules/flow-interfaces/interfaces/immutable.d.js
+node_modules/flow-interfaces/interfaces/redux.d.js
+node_modules/flow-interfaces/interfaces/redux-actions.d.js
 
 [options]
 esproposal.class_static_fields=enable
