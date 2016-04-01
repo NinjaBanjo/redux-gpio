@@ -1,22 +1,37 @@
-var nodeExternals = require('webpack-node-externals');
+var path = require('path');
+var fs = require('fs');
+var webpack = require('webpack');
+
+var nodeModules = {};
+fs.readdirSync('node_modules')
+  .filter(function(x) {
+    return ['.bin'].indexOf(x) === -1;
+  })
+  .forEach(function(mod) {
+    nodeModules[mod] = 'commonjs ' + mod;
+  });
 
 module.exports = function() {return {
-  target: 'node',
   entry: {
     tracker: './lib/boot'
   },
+  target: 'node',
   output: {
-    path: __dirname + '/dist',
+    path: path.join(__dirname, 'dist'),
     filename: '[name].js'
   },
   devtool: 'inline-source-map',
-  plugins: [],
-  externals: [nodeExternals()],
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: 'require("source-map-support").install();',
+      raw: true, entryOnly: false
+    })
+  ],
+  externals: nodeModules,
   module: {
     loaders: [
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
         loader: 'babel'
       }
     ]

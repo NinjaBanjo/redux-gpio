@@ -5,7 +5,8 @@ var pkg = require('./package.json');
 var execSync = require('child_process').execSync;
 
 // NOTE: _mocha vs mocha as _mocha tests sync and allows coverage reporting
-var testCmd = "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require source-map-support/register  --reporter dot "; // run tets through istanbul in node
+var coverCmd = "./node_modules/.bin/istanbul cover ";
+var testCmd =  "./node_modules/.bin/_mocha --reporter dot "; // run tets through istanbul in node
 
 module.exports = function(grunt) {
   grunt.initConfig({
