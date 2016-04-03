@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/grunt test",
+    "test-all": "./node_modules/.bin/grunt test-all",
     "cover": "./node_modules/.bin/grunt cover",
     "build": "./node_modules/.bin/grunt build",
     "pack": "./node_modules/.bin/grunt pack",

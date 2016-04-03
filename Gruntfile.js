@@ -53,6 +53,12 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.registerTask('run-integration-tests', function() {
+    execSync(testCmd + mochaArgs + "dist/tests-i.js", {
+      stdio: 'inherit' // <-- this writes the exec to the console with colors
+    });
+  });
+
   grunt.registerTask('run-cover', function() {
     execSync(coverCmd + testCmd + ' --' + mochaArgs + "dist/tests.js", {
       stdio: 'inherit' // <-- this writes the exec to the console with colors
@@ -91,6 +97,11 @@ module.exports = function(grunt) {
   grunt.registerTask('test', [
     'build-tests',
     'run-tests'
+  ]);
+
+  grunt.registerTask('test-all', [
+    'test',
+    'run-integration-tests'
   ]);
 
   grunt.registerTask('cover', [
