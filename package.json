@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/grunt test",
-    "testmost": "./node_modules/.bin/grunt testmost",
+    "cover": "./node_modules/.bin/grunt cover",
     "build": "./node_modules/.bin/grunt build",
     "pack": "./node_modules/.bin/grunt pack",
     "flow": "flow check"
@@ -52,6 +52,7 @@
     "sinon-chai": "2.8.0",
     "source-map-support": "^0.4.0",
     "standard": "^6.0.8",
+    "time-grunt": "1.3.0",
     "webpack": "^2.1.0-beta.4",
     "webpack-dev-server": "^1.14.1",
     "webpack-node-externals": "1.0.0"

@@ -6,9 +6,12 @@ var execSync = require('child_process').execSync;
 
 // NOTE: _mocha vs mocha as _mocha tests sync and allows coverage reporting
 var coverCmd = "./node_modules/.bin/istanbul cover ";
-var testCmd =  "./node_modules/.bin/_mocha --reporter dot "; // run tets through istanbul in node
+var testCmd =  "./node_modules/.bin/_mocha"; // run tets through istanbul in node
+var mochaArgs = " --reporter dot ";
 
 module.exports = function(grunt) {
+  require('time-grunt')(grunt);
+
   grunt.initConfig({
     copy: {
       pkg: {
@@ -45,7 +48,13 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('run-tests', function() {
-    execSync(testCmd + "dist/tests.js", {
+    execSync(testCmd + mochaArgs + "dist/tests.js", {
+      stdio: 'inherit' // <-- this writes the exec to the console with colors
+    });
+  });
+
+  grunt.registerTask('run-cover', function() {
+    execSync(coverCmd + testCmd + ' --' + mochaArgs + "dist/tests.js", {
       stdio: 'inherit' // <-- this writes the exec to the console with colors
     });
   });
@@ -80,9 +89,14 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('test', [
-    'clean:coverage',
     'build-tests',
     'run-tests'
+  ]);
+
+  grunt.registerTask('cover', [
+    'clean:coverage',
+    'build-tests',
+    'run-cover'
   ]);
 
   grunt.registerTask('lint-all', [
