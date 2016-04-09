@@ -19,6 +19,7 @@
     "redux-actions": "0.9.1",
     "redux-immutable": "3.0.6",
     "redux-thunk": "2.0.1",
+    "universal-analytics": "0.3.11",
     "winston": "2.2.0",
     "wiring-pi": "2.1.1"
   },
