@@ -1,0 +1,12 @@
+#!/bin/bash
+
+scp dist/*.zip pi@192.168.1.51:tracker.zip
+
+ssh pi@192.168.1.51 <<EOF
+ cd ~/tracker
+ rm -Rf *
+ mv ~/tracker.zip .
+ unzip -o tracker.zip
+ npm rebuild
+ sudo pm2 restart tracker
+EOF
